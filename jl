@@ -25,3 +25,12 @@ addEventListener("fetch", event => {
 
 
 2.部署workers。绑定自己的域名
+
+1. 感谢原作者zizifn  GitHub ：https://sd.kjkkk.eu.org/mJTMnm
+2.3Kmfi6HP大佬代码中的2个CDN加速
+edgetunnel.anycast.eu.org（美国的加速CDN）
+cdn.anycast.eu.org（香港日本新加坡加速CDN）
+韩国高速优选IP:129.154.199.251
+日本高速优选IP:146.56.149.205
+
+
