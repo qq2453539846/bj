@@ -1,66 +1,389 @@
-smartdns配置在主目录/root/tmp/etc/smartdns
+smartdns配置在主目录etc/confiq/smartdns
 smartdns.conf
 配置实例：
 
 
-server-name smartdns
-prefetch-domain yes
-serve-expired yes
-dnsmasq-lease-file /tmp/dhcp.leases
-rr-ttl-min 600
-log-size 64K
-log-num 1
-log-level error
-resolv-file /tmp/resolv.conf.d/resolv.conf.auto
-bind [::]:6053
-bind-tcp [::]:6053
-server-https 223.5.5.5/dns-query  
-server-https 223.6.6.6/dns-query  
-server-https dns.alidns.com/dns-query  
-server-https doh.pub/dns-query  
-server-https 1.12.12.12/dns-query  
-server-https 120.53.53.53/dns-query  
-server-https sm2.doh.pub/dns-query  
-server-https doh.360.cn  
-server-https dns.twnic.tw/dns-query  
-server-https dns.google/dns-query  
-server-https 8.8.8.8/dns-query  
-server-https 8.8.4.4/dns-query  
-server-https 1.1.1.1/dns-query  
-server-https 1.0.0.1/dns-query  
-server-https 1.0.0.1/dns-query  
-server-https cloudflare-dns.com/dns-query  
-server-https doh.sb/dns-query  
-server-https doh.dns.sb/dns-query  
-server-https 45.11.45.11/dns-query  
-server-https 185.222.222.222/dns-query  
-server-https hk-hkg.doh.sb/dns-query  
-server-https doh.opendns.com/dns-query  
-server-https doh.familyshield.opendns.com/dns-query  
-server-https dns.quad9.net/dns-query  
-server-https dns10.quad9.net/dns-query  
-server [2400:3200::1]  
-server [2400:3200:baba::1]  
-server [2402:4e00::]  
-server [2400:da00::6666]  
-server [240e:4c:4008::1]  
-server [240e:4c:4808::1]  
-server [2408:8899::8]  
-server [2408:8888::8]  
-server [2409:8088::a]  
-server [2409:8088::b]  
-server [2001:4860:4860::8888]  
-server [2001:4860:4860::8844]  
-server [2606:4700:4700::1111]  
-server [2606:4700:4700::1001]  
-server [2620:0:ccc::2]  
-server [2620:0:ccd::2]  
-server [2620:fe::fe]  
-server [2620:fe::9]  
-server [2620:74:1b::1:1]  
-server [2620:74:1c::2:2]  
-server 114.114.114.114  
-server 119.29.29.29  
-conf-file /etc/smartdns/address.conf
-conf-file /etc/smartdns/blacklist-ip.conf
-conf-file /etc/smartdns/custom.conf
+
+config smartdns
+	option server_name 'smartdns'
+	option port '6053'
+	option tcp_server '1'
+	option ipv6_server '1'
+	option dualstack_ip_selection '1'
+	option prefetch_domain '1'
+	option serve_expired '1'
+	option resolve_local_hostnames '1'
+	option force_aaaa_soa '0'
+	option force_https_soa '0'
+	option rr_ttl_min '600'
+	option seconddns_port '6553'
+	option seconddns_tcp_server '1'
+	option seconddns_no_speed_check '0'
+	option seconddns_no_rule_addr '0'
+	option seconddns_no_rule_nameserver '0'
+	option seconddns_no_rule_ipset '0'
+	option seconddns_no_rule_soa '0'
+	option seconddns_no_dualstack_selection '0'
+	option seconddns_no_cache '0'
+	option seconddns_force_aaaa_soa '0'
+	option coredump '0'
+	option enabled '1'
+	option auto_set_dnsmasq '0'
+	option old_port '6053'
+	option old_enabled '1'
+	option old_auto_set_dnsmasq '0'
+
+config server
+	option enabled '1'
+	option name '阿里'
+	option ip '223.5.5.5/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '阿里'
+	option ip '223.6.6.6/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '阿里'
+	option ip 'dns.alidns.com/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '腾讯'
+	option ip 'doh.pub/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '腾讯'
+	option ip '1.12.12.12/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '腾讯'
+	option ip '120.53.53.53/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '腾讯'
+	option ip 'sm2.doh.pub/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '360'
+	option ip 'doh.360.cn'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '台湾'
+	option ip 'dns.twnic.tw/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip 'dns.google/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '8.8.8.8/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '8.8.4.4/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Cloudflare'
+	option ip '1.1.1.1/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Cloudflare'
+	option ip '1.0.0.1/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Cloudflare'
+	option ip '1.0.0.1/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'Cloudflare'
+	option ip 'cloudflare-dns.com/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'SB'
+	option ip 'doh.sb/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'SB'
+	option ip 'doh.dns.sb/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'SB'
+	option ip '45.11.45.11/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'SB'
+	option ip '185.222.222.222/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'SB'
+	option ip 'hk-hkg.doh.sb/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip 'doh.opendns.com/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip 'doh.familyshield.opendns.com/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'IBM'
+	option ip 'dns.quad9.net/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name 'IBM'
+	option ip 'dns10.quad9.net/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+config server
+	option enabled '1'
+	option name '阿里 IPv6'
+	option ip '2400:3200::1'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '阿里 IPv6'
+	option ip '2400:3200:baba::1'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'DNSPod IPv6'
+	option ip '2402:4e00::'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '百度 IPv6'
+	option ip '2400:da00::6666'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '电信 IPv6'
+	option ip '240e:4c:4008::1'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '电信 IPv6'
+	option ip '240e:4c:4808::1'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '联通 IPv6'
+	option ip '2408:8899::8'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '联通 IPv6'
+	option ip '2408:8888::8'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '移动 IPv6'
+	option ip '2409:8088::a'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '移动 IPv6'
+	option ip '2409:8088::b'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '2001:4860:4860::8888'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Google'
+	option ip '2001:4860:4860::8844'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Cloudflare'
+	option ip '2606:4700:4700::1111'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Cloudflare'
+	option ip '2606:4700:4700::1001'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '2620:0:ccc::2'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'OpenDNS'
+	option ip '2620:0:ccd::2'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Quad9'
+	option ip '2620:fe::fe'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Quad9'
+	option ip '2620:fe::9'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Neustar UltraDNS'
+	option ip '2620:74:1b::1:1'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'Neustar UltraDNS'
+	option ip '2620:74:1c::2:2'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '114'
+	option ip '114.114.114.114'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '腾讯'
+	option ip '119.29.29.29'
+	option type 'udp'
+	option blacklist_ip '0'
+
