@@ -1,0 +1,66 @@
+smartdns配置在主目录/root/tmp/etc/smartdns
+smartdns.conf
+配置实例：
+
+
+server-name smartdns
+prefetch-domain yes
+serve-expired yes
+dnsmasq-lease-file /tmp/dhcp.leases
+rr-ttl-min 600
+log-size 64K
+log-num 1
+log-level error
+resolv-file /tmp/resolv.conf.d/resolv.conf.auto
+bind [::]:6053
+bind-tcp [::]:6053
+server-https 223.5.5.5/dns-query  
+server-https 223.6.6.6/dns-query  
+server-https dns.alidns.com/dns-query  
+server-https doh.pub/dns-query  
+server-https 1.12.12.12/dns-query  
+server-https 120.53.53.53/dns-query  
+server-https sm2.doh.pub/dns-query  
+server-https doh.360.cn  
+server-https dns.twnic.tw/dns-query  
+server-https dns.google/dns-query  
+server-https 8.8.8.8/dns-query  
+server-https 8.8.4.4/dns-query  
+server-https 1.1.1.1/dns-query  
+server-https 1.0.0.1/dns-query  
+server-https 1.0.0.1/dns-query  
+server-https cloudflare-dns.com/dns-query  
+server-https doh.sb/dns-query  
+server-https doh.dns.sb/dns-query  
+server-https 45.11.45.11/dns-query  
+server-https 185.222.222.222/dns-query  
+server-https hk-hkg.doh.sb/dns-query  
+server-https doh.opendns.com/dns-query  
+server-https doh.familyshield.opendns.com/dns-query  
+server-https dns.quad9.net/dns-query  
+server-https dns10.quad9.net/dns-query  
+server [2400:3200::1]  
+server [2400:3200:baba::1]  
+server [2402:4e00::]  
+server [2400:da00::6666]  
+server [240e:4c:4008::1]  
+server [240e:4c:4808::1]  
+server [2408:8899::8]  
+server [2408:8888::8]  
+server [2409:8088::a]  
+server [2409:8088::b]  
+server [2001:4860:4860::8888]  
+server [2001:4860:4860::8844]  
+server [2606:4700:4700::1111]  
+server [2606:4700:4700::1001]  
+server [2620:0:ccc::2]  
+server [2620:0:ccd::2]  
+server [2620:fe::fe]  
+server [2620:fe::9]  
+server [2620:74:1b::1:1]  
+server [2620:74:1c::2:2]  
+server 114.114.114.114  
+server 119.29.29.29  
+conf-file /etc/smartdns/address.conf
+conf-file /etc/smartdns/blacklist-ip.conf
+conf-file /etc/smartdns/custom.conf
